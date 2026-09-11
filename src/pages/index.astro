@@ -1,0 +1,9 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero from "../components/Hero.astro";
+import homePageData from '../content/homepage.json'
+---
+
+<Layout title="Local Business Website">
+	<Hero headline={homePageData.heroTitle} subheadline={homePageData.heroSubtitle} ctaText={homePageData.ctaText} />
+</Layout>
