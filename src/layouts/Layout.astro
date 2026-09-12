@@ -13,9 +13,38 @@ const {title, description = "Small business service site"} = Astro.props;
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>{title}</title>
-        <meta name="description" content={description} />    
+        <meta name="description" content={description} />
+
+        <!-- Include Netlify Identity Widget -->
+         <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     </head>
     <body class="bg-slate-200 text-slate-900 antialiased">
-        <slot />        
+        <slot />
+
+        <!-- Script to catch password reset tokens and send you to /admin -->
+        <script is:inline>
+            function initNetlifyIdentity() {
+                if (window.netlifyIdentity) {
+                    window.netlifyIdentity.on("init", (user) => {
+                        if (!user) {
+                            window.netlifyIdentity.on("login", () => {
+                                document.location.href = "/admin/";
+                            });
+                        }
+                    });
+
+                    const hash = window.location.hash;
+                    if (hash && (hash.includes("recovery_token") || hash.includes("invite_token") || hash.includes("access_token"))) {
+                        window.netlifyIdentity.open();
+                    }
+                }
+            }
+
+            if (window.netlifyIdentity) {
+                initNetlifyIdentity();
+            } else {
+                document.addEventListener("DOMContentLoaded", initNetlifyIdentity);
+            }
+        </script>
     </body>
 </html>
