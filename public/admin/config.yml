@@ -14,5 +14,5 @@ collections:
         name: "homepage"
         fields:
           - { label: "Hero Title", name: "heroTitle", widget: "string"}
-          - { label: "Hero Subtitle", name: "heroSubtile", widget: "text"}
+          - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text"}
           - { label: "CTA Button Text", name: "ctaText", widget: "string"}
