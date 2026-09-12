@@ -1,13 +1,17 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Hero from "../components/Hero.astro";
+import Navbar from "../components/Navbar.astro";
 import Contact from "../components/Contact.astro";
 import Services from "../components/Services.astro";
 import homePageData from '../content/homepage.json';
 ---
 
 <Layout title="Local Business Website">
-	<Hero headline={homePageData.heroTitle} subheadline={homePageData.heroSubtitle} ctaText={homePageData.ctaText} servicesText={homePageData.servicesText} />
-	<Services />
-	<Contact />
+	<Navbar brandName="ApexPlumbing" phone="+91 98765 43210" />
+	<main>
+		<Hero headline={homePageData.heroTitle} subheadline={homePageData.heroSubtitle} ctaText={homePageData.ctaText} servicesText={homePageData.servicesText} />
+		<Services />
+		<Contact />
+	</main>
 </Layout>
