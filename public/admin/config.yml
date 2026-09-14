@@ -16,6 +16,13 @@ collections:
           - { label: "Hero Title", name: "heroTitle", widget: "string"}
           - { label: "Hero Subtitle", name: "heroSubtitle", widget: "text"}
           - { label: "CTA Button Text", name: "ctaText", widget: "string"}
+          - { label: "Services Button Text", name: "servicesText", widget: "string"}
+          - { label: "Service Name 1", name: "serviceTitle1", widget: "string"}
+          - { label: "Service Description 1", name: "serviceDesc1", widget: "text"}
+          - { label: "Service Name 2", name: "serviceTitle2", widget: "string"}
+          - { label: "Service Description 2", name: "serviceDesc2", widget: "text"}
+          - { label: "Service Name 3", name: "serviceTitle3", widget: "string"}
+          - { label: "Service Description 3", name: "serviceDesc3", widget: "text"}
           
   - name: "blog"
     label: "Blog Posts"

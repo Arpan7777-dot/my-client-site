@@ -1,16 +1,18 @@
 ---
+import { hostname } from "astro:schema";
+import homepage from "../content/homepage.json"
 const services = [
   {
-    title: "Emergency Repairs",
-    desc: "24/7 leak fixing and emergency plumbing services."
+    title: homepage.serviceTitle1,
+    desc: homepage.serviceDesc1
   },
   {
-    title: "Drain Cleaning",
-    desc: "Comprehensive drain cleaning and maintenance services."
+    title: homepage.serviceTitle2,
+    desc: homepage.serviceDesc2
   },
   {
-    title: "Fixture Installation",
-    desc: "Sinks, faucets, and other plumbing fixture installation services."
+    title: homepage.serviceTitle3,
+    desc: homepage.serviceDesc3
   },
 ];
 ---

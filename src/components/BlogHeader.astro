@@ -1,0 +1,18 @@
+---
+interface Props {
+    blogHeader: string;
+}
+
+const {blogHeader} = Astro.props;
+---
+
+<section class="pt-2 pb-4">
+    <a href="/#" class="text-blue-600 underline italic mx-3">← Go to home page</a>
+    <h1 class="py-8 text-center font-extrabold text-4xl sm:text-6xl text-slate-700">
+        {blogHeader}
+    </h1>
+    <div class="flex justify-between mx-9">
+        <p class="font-extrabold text-3xl">Recent Posts</p>
+        <p>filters</p>
+    </div>
+</section>
