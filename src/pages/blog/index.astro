@@ -1,21 +1,24 @@
 ---
 import { getCollection } from "astro:content";
+import BlogHeader from "../../components/BlogHeader.astro"
 import Layout from "../../layouts/Layout.astro";
 
 const posts = await getCollection('blog');
 ---
 
 <Layout title="Blog">
+    <BlogHeader blogHeader="BLOG"></BlogHeader>
     <main class="max-w-4xl mx-auto px-4 py-8">
-        <h1 class="text-3xl font-bold mb-6">Blog Posts</h1>
-        <ul class="space-y-4">
+        <div class="grid gap-4 md:grid-cols-4">
             {posts.map((post) => (
-                <li>
-                    <a href={`/blog/${post.id.split('/').pop()}`} class="text-blue-600 hover:underline text-lg font-semibold">
+                <div class="bg-slate-200 px-2 py-4 rounded-lg shadow border border-slate-300">
+                    <p class="text-sm text-slate-400">{post.data.pubDate}</p>
+                    <a href={`/blog/${post.id.split('/').pop()}`} class="text-indigo-800 hover:underline text-2xl font-semibold">
                         {post.data.title || post.id}
                     </a>
-                </li>
+                    <p class="italic font-mono text-slate-500">{post.data.description}</p>
+                </div>
             ))}
-        </ul>
+        </div>
     </main>
 </Layout>

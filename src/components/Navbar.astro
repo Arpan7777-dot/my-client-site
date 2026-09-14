@@ -4,7 +4,7 @@ interface Props {
     phone?: string;
 }
 
-const {brandName = "ApexPlumbing", phone = "+91 98765 43210"} = Astro.props;
+const {brandName = "CompanyName", phone = "+91 98765 43210"} = Astro.props;
 
 const formattedPhone = phone.replace(/[0-9+]/g, '');
 ---
