@@ -1,5 +1,65 @@
 @import "tailwindcss";
 
+@theme {
+  --color-ktx-base: var(--ktx-base);
+  --color-ktx-mantle: var(--ktx-mantle);
+  --color-ktx-crust: var(--ktx-crust);
+  --color-ktx-surface0: var(--ktx-surface0);
+  --color-ktx-surface1: var(--ktx-surface1);
+  --color-ktx-text: var(--ktx-text);
+  --color-ktx-subtext: var(--ktx-subtext0);
+  --color-ktx-overlay: var(--ktx-overlay0);
+  --color-ktx-blue: var(--ktx-blue);
+  --color-ktx-mauve: var(--ktx-mauve);
+  --color-ktx-peach: var(--ktx-peach);
+  --color-ktx-green: var(--ktx-green);
+  --color-ktx-red: var(--ktx-red);
+}
+
 html {
     scroll-behavior: smooth;
+}
+
+:root {
+    /* Default Theme: Kinetix Dark */
+    --ktx-base: #1e1e1e;
+    --ktx-mantle: #181825;
+    --ktx-crust: #11111b;
+    --ktx-surface0: #313244;
+    --ktx-surface1: #45475a;
+    
+    --ktx-text: #cdd6f4;
+    --ktx-subtext0: #a6adc8;
+    --ktx-overlay0: #6c7086;
+
+    --ktx-blue: #89b4fa;
+    --ktx-mauve: #cba6f7;
+    --ktx-peach: #fab387;
+    --ktx-green: #a6e3a1;
+    --ktx-red: #f38ba8;
+}
+
+/* Light Theme: Kinetix Light */
+[data-theme="ktxlight"] {
+    --ktx-base: #eff1f5;
+    --ktx-mantle: #e6e9ef;
+    --ktx-crust: #dce0e8;
+    --ktx-surface0: #ccd0da;
+    --ktx-surface1: #bcc0cc;
+
+    --ktx-text: #4c4f69;
+    --ktx-subtext0: #6c6f86;
+    --ktx-overlay0: #9ca0b0;
+
+    --ktx-blue: #1e66f5;
+    --ktx-mauve: #8839ef;
+    --ktx-peach: #fe640b;
+    --ktx-green: #40a02b;
+    --ktx-red: #d20f39;
+}
+
+/* Global Base Styles */
+body {
+    background-color: var(--ktx-base);
+    color: var(--ktx-text);
 }

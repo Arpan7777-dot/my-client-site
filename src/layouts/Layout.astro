@@ -15,7 +15,7 @@ const {title, description = "Small business service site"} = Astro.props;
         <title>{title}</title>
         <meta name="description" content={description} />
     </head>
-    <body class="bg-slate-200 text-slate-900 antialiased">
+    <body class="antialiased">
         <slot />
 
         <!-- Script to catch password reset tokens and send you to /admin -->

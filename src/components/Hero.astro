@@ -8,18 +8,18 @@ interface Props {
 const {headline, subheadline, ctaText, servicesText} = Astro.props;
 ---
 
-<section class="py-20 px-4 text-center max-w-4xl mx-auto">
-    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-slate-900">
+<section class="py-20 px-4 text-center max-w-4xl mx-auto bg-[url('/uploads/cover.png')] bg-cover bg-center bg-no-repeat min-w-full">
+    <h1 class="text-4xl sm:text-6xl font-extrabold tracking-tight text-ktx-text">
         {headline}
     </h1>
-    <p class="mt-6 text-lg text-slate-600">
+    <p class="mt-6 text-lg text-ktx-subtext">
         {subheadline}
     </p>
     <div class="flex flex-col sm:flex-row gap-4 justify-center mt-6">
-        <a href="#contact" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
+        <a href="#contact" class="inline-block bg-ktx-blue text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
             {ctaText}
         </a>
-        <a href="#services" class="inline-block bg-blue-600 text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
+        <a href="#services" class="inline-block bg-ktx-blue text-white font-semibold px-6 py-3 rounded-lg shadow hover:bg-blue-700 transition">
             {servicesText}
         </a>
     </div>

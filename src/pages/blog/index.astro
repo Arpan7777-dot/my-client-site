@@ -11,13 +11,21 @@ const posts = await getCollection('blog');
     <main class="max-w-4xl mx-auto px-4 py-8">
         <div class="grid gap-4 md:grid-cols-4">
             {posts.map((post) => (
-                <div class="bg-slate-200 px-2 py-4 rounded-lg shadow border border-slate-300">
-                    <p class="text-sm text-slate-400">{post.data.pubDate}</p>
-                    <a href={`/blog/${post.id.split('/').pop()}`} class="text-indigo-800 hover:underline text-2xl font-semibold">
-                        {post.data.title || post.id}
-                    </a>
-                    <p class="italic font-mono text-slate-500">{post.data.description}</p>
-                </div>
+                <a href={`/blog/${post.id.split('/').pop()}`}>
+                    <article  
+                        data-post-card
+                        data-title={post.data.title}
+                        data-description={post.data.description}
+                        class="bg-ktx-surface0 rounded-lg shadow border border-ktx-surface1 hover:border-ktx-blue"
+                    >
+                        <img src={post.data.coverImage} alt="" class="w-full rounded-lg">
+                        <h2 class="text-ktx-blue hover:underline text-2xl font-semibold px-2">{post.data.title || post.id}</h2>
+                        <p class="text-sm text-ktx-subtext px-2">{post.data.pubDate}</p>
+                        <p class="italic font-mono text-ktx-overlay px-2">{post.data.description}</p>
+                    </article>
+                        
+                </a>
+                
             ))}
         </div>
     </main>

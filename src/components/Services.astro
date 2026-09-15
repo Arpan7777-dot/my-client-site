@@ -17,14 +17,14 @@ const services = [
 ];
 ---
 
-<section id="services" class="py-12 bg-white">
+<section id="services" class="py-12 bg-ktx-mantle">
   <div class="max-w-5xl mx-auto px-4">
-    <h2 class=" py-4 text-3xl font-bold text-center text-slate-900">Our Services</h2>
+    <h2 class=" py-4 text-3xl font-bold text-center text-ktx-text">Our Services</h2>
     <div class="grid md:grid-cols-3 gap-8">
       {services.map(service => (
-        <div class="p-6 border border-slate-200 rounded-xl shadow-sm hover:shadow-md transition">
-          <h3 class="text-xl text-red-800 font-bold mb-2">{service.title}</h3>
-          <p>{service.desc}</p>
+        <div class="p-6 border border-ktx-surface1 bg-ktx-surface0 rounded-xl shadow-sm hover:shadow-md transition">
+          <h3 class="text-xl text-ktx-red font-bold mb-2">{service.title}</h3>
+          <p class="text-ktx-subtext">{service.desc}</p>
         </div>
       ))}
     </div>

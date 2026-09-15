@@ -18,6 +18,13 @@ const { Content } = await render(post);
     <article class="max-w-3xl mx-auto px-4 py-12 prose dark:prose-invert">
         <h1 class="text-4xl font-bold text-slate-900 mb-2">{post.data.title}</h1>
         <p class="text-slate-500 mb-8">Published on {post.data.pubDate.toString()}</p>
+        {post.data.coverImage && (
+            <img 
+                src={post.data.coverImage} 
+                alt={post.data.title}
+                class="w-full h-64 object-cover rounded-lg mb-6"
+            >
+        )}
         <div class="mt-6 text-slate-700">
             <Content />
         </div>
