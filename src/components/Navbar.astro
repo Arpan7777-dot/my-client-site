@@ -2,22 +2,25 @@
 interface Props {
     brandName?: string;
     phone?: string;
+    companyNameImg?: boolean;
 }
 
-const {brandName = "CompanyName", phone = "+91 98765 43210"} = Astro.props;
+const {brandName = "CompanyName", phone = "+91 98765 43210", companyNameImg = true} = Astro.props;
 
 const formattedPhone = phone.replace(/[0-9+]/g, '');
 ---
 
 <header class="sticky top-0 z-50 w-full bg-ktx-mantle backdrop-blur-md border-b border-ktx-crust">
-    <div class="max-w-5xl mx-auto px-4 h-16 flex items-center justify-between">
+    <div class="max-w-5xl mx-auto px-4 h-18 flex items-center justify-between">
         <a href="#" class="flex items-center gap-2 group">
-            <div class="w-9 h-9 bg-ktx-blue rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-md shadow-blue-600/30 group-hover:bg-blue-500 transition">
-                ⚡            
+            <img src="/uploads/company-logo.png" class="w-10 h-10 rounded-lg flex items-center justify-center" />
+            <div>
+                {companyNameImg
+                    ? (<img src="/uploads/company-name.png" class="h-9"/>)
+                    : <span class="font-bold text-xl sm:text-2xl text-ktx-mauve">{brandName}</span>
+                }
+                <p class="text-xs text-center">Build.Design.Grow</p>
             </div>
-            <span class="text-lg font-bold text-ktx-mauve tracking-tight group-hover:text-blue-400 transition">
-                {brandName}
-            </span>
         </a>
 
         <!-- Navigation Links (Hidden on small mobile screens) -->
