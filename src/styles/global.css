@@ -1,19 +1,39 @@
 @import "tailwindcss";
 
 @theme {
+  /* Base Colors (Backgrounds) */
   --color-ktx-base: var(--ktx-base);
   --color-ktx-mantle: var(--ktx-mantle);
   --color-ktx-crust: var(--ktx-crust);
+
+  /* Surfaces & Overlays */
   --color-ktx-surface0: var(--ktx-surface0);
   --color-ktx-surface1: var(--ktx-surface1);
+  --color-ktx-surface2: var(--ktx-surface2);
+  --color-ktx-overlay0: var(--ktx-overlay0);
+  --color-ktx-overlay1: var(--ktx-overlay1);
+  --color-ktx-overlay2: var(--ktx-overlay2);
+
+  /* Text & Subtext */
+  --color-ktx-subtext0: var(--ktx-subtext0);
+  --color-ktx-subtext1: var(--ktx-subtext1);
   --color-ktx-text: var(--ktx-text);
-  --color-ktx-subtext: var(--ktx-subtext0);
-  --color-ktx-overlay: var(--ktx-overlay0);
-  --color-ktx-blue: var(--ktx-blue);
-  --color-ktx-mauve: var(--ktx-mauve);
-  --color-ktx-peach: var(--ktx-peach);
-  --color-ktx-green: var(--ktx-green);
+
+  /* Accents */
+  --color-ktx-rosewater: var(--ktx-rosewater);
+  --color-ktx-flamingo: var(--ktx-flamingo);
+  --color-ktx-pink: var(--ktx-pink);
+  --color-ktx-lavender: var(--ktx-lavender);
   --color-ktx-red: var(--ktx-red);
+  --color-ktx-maroon: var(--ktx-maroon);
+  --color-ktx-peach: var(--ktx-peach);
+  --color-ktx-yellow: var(--ktx-yellow);
+  --color-ktx-green: var(--ktx-green);
+  --color-ktx-teal: var(--ktx-teal);
+  --color-ktx-sky: var(--ktx-sky);
+  --color-ktx-sapphire: var(--ktx-sapphire);
+  --color-ktx-blue: var(--ktx-blue);
+  --color-ktx-lavender: var(--ktx-lavender);
 }
 
 html {
@@ -21,22 +41,39 @@ html {
 }
 
 :root {
-    /* Default Theme: Kinetix Dark */
-    --ktx-base: #1e1e1e;
-    --ktx-mantle: #181825;
-    --ktx-crust: #11111b;
-    --ktx-surface0: #313244;
-    --ktx-surface1: #45475a;
-    
-    --ktx-text: #cdd6f4;
-    --ktx-subtext0: #a6adc8;
-    --ktx-overlay0: #6c7086;
+  /* Base Colors (Backgrounds) */
+  --ktx-base: #1e1e2e;
+  --ktx-mantle: #181825;
+  --ktx-crust: #11111b;
 
-    --ktx-blue: #89b4fa;
-    --ktx-mauve: #cba6f7;
-    --ktx-peach: #fab387;
-    --ktx-green: #a6e3a1;
-    --ktx-red: #f38ba8;
+  /* Surfaces & Overlays */
+  --ktx-surface0: #313244;
+  --ktx-surface1: #45475a;
+  --ktx-surface2: #585b70;
+  --ktx-overlay0: #6c7086;
+  --ktx-overlay1: #7f849c;
+  --ktx-overlay2: #9399b2;
+
+  /* Text & Subtext */
+  --ktx-subtext0: #a6adc8;
+  --ktx-subtext1: #bac2de;
+  --ktx-text: #cdd6f4;
+
+  /* Accents */
+  --ktx-rosewater: #f5e0dc;
+  --ktx-flamingo: #f2cdcd;
+  --ktx-pink: #f5c2e7;
+  --ktx-lavender: #cba6f7;
+  --ktx-red: #f38ba8;
+  --ktx-maroon: #eba0ac;
+  --ktx-peach: #fab387;
+  --ktx-yellow: #f9e2af;
+  --ktx-green: #a6e3a1;
+  --ktx-teal: #94e2d5;
+  --ktx-sky: #89dceb;
+  --ktx-sapphire: #74c7ec;
+  --ktx-blue: #89b4fa;
+  --ktx-lavender: #b4befe;
 }
 
 /* Light Theme: Kinetix Light */
@@ -52,7 +89,7 @@ html {
     --ktx-overlay0: #9ca0b0;
 
     --ktx-blue: #1e66f5;
-    --ktx-mauve: #8839ef;
+    --ktx-lavender: #8839ef;
     --ktx-peach: #fe640b;
     --ktx-green: #40a02b;
     --ktx-red: #d20f39;
