@@ -3,20 +3,35 @@ import { hostname } from "astro:schema";
 import homepage from "../content/homepage.json"
 const services = [
   {
+    themeClass: homepage.iconColor1,
     icon: homepage.serviceIcon1,
     title: homepage.serviceTitle1,
     desc: homepage.serviceDesc1
   },
   {
-    icon: homepage.serviceIcon1,
+    themeClass: homepage.iconColor2,
+    icon: homepage.serviceIcon2,
     title: homepage.serviceTitle2,
     desc: homepage.serviceDesc2
   },
   {
+    themeClass: homepage.iconColor3,
+    icon: homepage.serviceIcon3,
+    title: homepage.serviceTitle3,
+    desc: homepage.serviceDesc3
+  },
+  {
+    themeClass: homepage.iconColor4,
     icon: homepage.serviceIcon1,
     title: homepage.serviceTitle3,
     desc: homepage.serviceDesc3
   },
+  {
+    themeClass: homepage.iconColor5,
+    icon: homepage.serviceIcon1,
+    title: homepage.serviceTitle3,
+    desc: homepage.serviceDesc3
+  }
 ];
 ---
 
@@ -25,12 +40,12 @@ const services = [
     <p class="text-center uppercase tracking-[0.3em] text-xs text-ktx-lavender">services</p>
     <h2 class=" py-2 text-3xl font-bold text-center text-ktx-text">What I Offer</h2>
     <p class="text-center pb-4 text-ktx-subtext0">I provide end-to-end web development services tailored to your needs.</p>
-    <div class="grid md:grid-cols-3 gap-8">
+    <div class="grid md:grid-cols-5 gap-2">
       {services.map(service => (
         <div class="p-4 border border-ktx-surface1 bg-ktx-surface0 rounded-xl shadow-sm hover:shadow-md transition">
-          <div class="w-7 h-7 items-center my-2 bg-ktx-blue/60" set:html={service.icon} />
-          <h3 class="text-xl text-ktx-red font-bold mb-2">{service.title}</h3>
-          <p class="text-ktx-subtext">{service.desc}</p>
+          <div class:list={["w-7 h-6 rounded-md items-center mb-2 border", service.themeClass]} set:html={service.icon} />
+          <h3 class="text-lg text-ktx-text font-bold mb-2">{service.title}</h3>
+          <p class="text-ktx-subtext0 text-sm">{service.desc}</p>
         </div>
       ))}
     </div>
