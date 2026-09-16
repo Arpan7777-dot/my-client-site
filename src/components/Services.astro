@@ -3,14 +3,17 @@ import { hostname } from "astro:schema";
 import homepage from "../content/homepage.json"
 const services = [
   {
+    icon: homepage.serviceIcon1,
     title: homepage.serviceTitle1,
     desc: homepage.serviceDesc1
   },
   {
+    icon: homepage.serviceIcon1,
     title: homepage.serviceTitle2,
     desc: homepage.serviceDesc2
   },
   {
+    icon: homepage.serviceIcon1,
     title: homepage.serviceTitle3,
     desc: homepage.serviceDesc3
   },
@@ -19,10 +22,13 @@ const services = [
 
 <section id="services" class="py-12 bg-ktx-mantle">
   <div class="max-w-5xl mx-auto px-4">
-    <h2 class=" py-4 text-3xl font-bold text-center text-ktx-text">Our Services</h2>
+    <p class="text-center uppercase tracking-[0.3em] text-xs text-ktx-lavender">services</p>
+    <h2 class=" py-2 text-3xl font-bold text-center text-ktx-text">What I Offer</h2>
+    <p class="text-center pb-4 text-ktx-subtext0">I provide end-to-end web development services tailored to your needs.</p>
     <div class="grid md:grid-cols-3 gap-8">
       {services.map(service => (
-        <div class="p-6 border border-ktx-surface1 bg-ktx-surface0 rounded-xl shadow-sm hover:shadow-md transition">
+        <div class="p-4 border border-ktx-surface1 bg-ktx-surface0 rounded-xl shadow-sm hover:shadow-md transition">
+          <div class="w-7 h-7 items-center my-2 bg-ktx-blue/60" set:html={service.icon} />
           <h3 class="text-xl text-ktx-red font-bold mb-2">{service.title}</h3>
           <p class="text-ktx-subtext">{service.desc}</p>
         </div>
