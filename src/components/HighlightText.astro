@@ -1,0 +1,18 @@
+---
+interface Props {
+    text: string;
+    highlight: string;
+    attr: string;
+}
+
+const {text, highlight, attr} = Astro.props;
+const parts = text.split(new RegExp(`(${highlight})`, 'gi'));
+---
+
+
+{
+    parts.map((part) =>
+        part.toLowerCase() === highlight.toLowerCase() ? <span class={attr}>{part}</span> : (part))
+}
+
+
