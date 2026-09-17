@@ -1,10 +1,10 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import Hero from "../components/Hero.astro";
 import Navbar from "../components/Navbar.astro";
-import Contact from "../components/Contact.astro";
+import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
 import FeatureCard from "../components/FeatureCard.astro";
+import Footer from "../components/Footer.astro";
 import homePageData from '../content/homepage.json';
 ---
 
@@ -13,11 +13,11 @@ import homePageData from '../content/homepage.json';
 	<main>
 		<Hero topping={homePageData.topping} headline={homePageData.heroTitle} subheadline={homePageData.heroSubtitle} ctaText={homePageData.ctaText} servicesText={homePageData.servicesText} />
 		<Services />
-		<Contact />
 		<FeatureCard 
 			motto="// Let's Work Together" 
 			heading={`Got an idea?\nLet's build it.`}
 			description="Whether you need a simple website, a full-stack application, or ongoing support - I'm here to help you turn your vision into a clean, fast and modern web solution."
 		/>
+		<Footer />
 	</main>
 </Layout>

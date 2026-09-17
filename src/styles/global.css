@@ -1,6 +1,10 @@
 @import "tailwindcss";
+@import "@fontsource-variable/jetbrains-mono";
+@import "@fontsource-variable/fira-code";
 
 @theme {
+  --font-mono: 'JetBrains Mono Variable', monospace;
+
   /* Base Colors (Backgrounds) */
   --color-ktx-base: var(--ktx-base);
   --color-ktx-mantle: var(--ktx-mantle);

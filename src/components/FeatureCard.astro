@@ -1,6 +1,7 @@
 ---
+import { Image } from 'astro:assets';
 import HighlightText from './HighlightText.astro';
-
+import featureImage from '../components/images/feature.png'
 interface Props {
     motto: string;
     heading: string;
@@ -11,8 +12,8 @@ const {motto, heading, description} = Astro.props;
 ---
 
 
-<section class="relative">
-    <div class="max-w-7xl mx-auto grid grid-cols-2 bg-ktx-surface0 my-4 rounded-xl">
+<section class="relative my-25">
+    <div class="max-w-7xl mx-4 lg:mx-auto grid grid-cols-1 md:grid-cols-2 bg-ktx-surface0 border border-ktx-surface1 my-4 rounded-xl">
         <!-- Left Column -->
         <div class="flex flex-col items-start space-y-4 px-12 py-6">
             <span class="font-semibold tracking-[0.2em] uppercase text-xs text-ktx-mauve">{motto}</span>
@@ -41,9 +42,9 @@ const {motto, heading, description} = Astro.props;
                 </a>
             </div>
         </div>
-        <!-- Right Column -->
-        <div class="h-85 relative flex items-center lg:justify-end">
-            <img src="/src/components/images/feature.png" alt="" class="hidden md:block relative object-cover">
+        <!-- Right Column: Image-->
+        <div class="relative flex items-center lg:justify-end">
+            <Image src={featureImage} alt="" class="hidden h-85 md:block relative object-cover" />
         </div>
     </div>
 </section>

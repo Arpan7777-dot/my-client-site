@@ -10,7 +10,7 @@ const {brandName = "CompanyName", phone = "+91 98765 43210", companyNameImg = tr
 const formattedPhone = phone.replace(/[0-9+]/g, '');
 ---
 
-<header class="sticky top-0 z-50 w-full bg-ktx-mantle backdrop-blur-md border-b border-ktx-crust">
+<header class="sticky top-0 z-50 w-full bg-ktx-mantle/50 backdrop-blur-lg border-b border-ktx-crust">
     <div class="max-w-7xl mx-auto px-4 h-18 flex items-center justify-between">
         <a href="#" class="flex items-center gap-2 group">
             <img src="/uploads/company-logo.png" class="w-10 h-10 rounded-lg flex items-center justify-center" />
@@ -19,7 +19,7 @@ const formattedPhone = phone.replace(/[0-9+]/g, '');
                     ? (<img src="/uploads/company-name.png" class="h-9"/>)
                     : <span class="font-bold text-xl sm:text-2xl text-ktx-lavender">{brandName}</span>
                 }
-                <p class="text-xs text-center">Build.Design.Grow</p>
+                <p class="text-xs text-center text-ktx-mauve"> Build • Design • Grow</p>
             </div>
         </a>
 

@@ -1,0 +1,54 @@
+---
+import { Image } from 'astro:assets';
+import githubIcon from '../components/icons/github.png'
+import linkedinIcon from '../components/icons/linkedin.png'
+import xIcon from '../components/icons/x.png'
+import instaIcon from '../components/icons/instagram.png'
+import ytIcon from '../components/icons/youtube.png'
+interface Props {
+    brandName?: string;
+    companyNameImg?: boolean;
+}
+
+const {brandName = "CompanyName", companyNameImg = true} = Astro.props;
+
+---
+
+<div class="flex flex-col gap-4 px-5 tracking-wide">
+    <!-- Comapny Header -->
+    <div class="flex items-center gap-2">
+        <img src="/uploads/company-logo.png" class="w-10 h-10 rounded-lg flex items-center justify-center" />
+            <div>
+                {companyNameImg
+                    ? (<img src="/uploads/company-name.png" class="h-9"/>)
+                    : <span class="font-bold text-xl sm:text-2xl text-ktx-lavender">{brandName}</span>
+                }
+                <p class="text-xs tracking-widest text-ktx-mauve"> Build • Design • Grow</p>
+            </div>
+    </div>
+    <!-- Work Detail -->
+    <p class="text-xs text-ktx-subtext1 font-mono">Modern, fast and user-frindly websites and web applications for businesses, creators and individuals. Clean code, great design, real results.</p>
+    <!-- Social Links Tray -->
+    <div class="flex items-center gap-2">
+        <!-- Github -->
+        <a href="" class="bg-ktx-surface1 p-2 rounded-lg overflow-hidden">
+            <Image src={githubIcon} alt="" class="w-4 h-4 -translate-x-8 filter-[invert(1)_drop-shadow(32px_0_0_var(--color-ktx-mauve))]"/>
+        </a>
+        <!-- Linkedin -->
+        <a href="" class="bg-ktx-surface1 p-2 rounded-lg overflow-hidden">
+            <Image src={linkedinIcon} alt="" class="w-4 h-4 -translate-x-8 filter-[invert(1)_drop-shadow(32px_0_0_var(--color-ktx-blue))]"/>
+        </a>
+        <!-- X -->    
+        <a href="" class="bg-ktx-surface1 p-2 rounded-lg overflow-hidden">
+            <Image src={xIcon} alt="" class="w-4 h-4 -translate-x-8 filter-[invert(1)_drop-shadow(32px_0_0_var(--color-ktx-teal))]"/>
+        </a>
+        <!-- Instagram -->
+        <a href="" class="bg-ktx-surface1 p-2 rounded-lg overflow-hidden">
+            <Image src={instaIcon} alt="" class="w-4 h-4 -translate-x-8 filter-[invert(1)_drop-shadow(32px_0_0_var(--color-ktx-maroon))]"/>
+        </a>
+        <!-- Youtube -->
+        <a href="" class="bg-ktx-surface1 p-2 rounded-lg overflow-hidden">
+            <Image src={ytIcon} alt="" class="w-4 h-4 -translate-x-8 filter-[invert(1)_drop-shadow(32px_0_0_var(--color-ktx-red))]"/>
+        </a>
+    </div>
+</div>
