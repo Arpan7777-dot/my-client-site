@@ -22,27 +22,27 @@ const services = [
   },
   {
     themeClass: homepage.iconColor4,
-    icon: homepage.serviceIcon1,
-    title: homepage.serviceTitle3,
-    desc: homepage.serviceDesc3
+    icon: homepage.serviceIcon4,
+    title: homepage.serviceTitle4,
+    desc: homepage.serviceDesc4
   },
   {
     themeClass: homepage.iconColor5,
-    icon: homepage.serviceIcon1,
-    title: homepage.serviceTitle3,
-    desc: homepage.serviceDesc3
+    icon: homepage.serviceIcon5,
+    title: homepage.serviceTitle5,
+    desc: homepage.serviceDesc5
   }
 ];
 ---
 
 <section id="services" class="py-12 bg-ktx-mantle">
-  <div class="max-w-5xl mx-auto px-4">
+  <div class="max-w-7xl mx-auto px-4">
     <p class="text-center uppercase tracking-[0.3em] text-xs text-ktx-lavender">services</p>
     <h2 class=" py-2 text-3xl font-bold text-center text-ktx-text">What I Offer</h2>
     <p class="text-center pb-4 text-ktx-subtext0">I provide end-to-end web development services tailored to your needs.</p>
-    <div class="grid md:grid-cols-5 gap-2">
+    <div class="grid md:grid-cols-5 gap-2 w-full">
       {services.map(service => (
-        <div class="p-4 border border-ktx-surface1 bg-ktx-surface0 rounded-xl shadow-sm hover:shadow-md transition">
+        <div class="p-4 border border-ktx-surface1 bg-ktx-surface0 rounded-xl shadow-sm hover:shadow-md shadow-ktx-lavender transition-shadow">
           <div class:list={["w-7 h-6 rounded-md items-center mb-2 border", service.themeClass]} set:html={service.icon} />
           <h3 class="text-lg text-ktx-text font-bold mb-2">{service.title}</h3>
           <p class="text-ktx-subtext0 text-sm">{service.desc}</p>

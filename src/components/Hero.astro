@@ -16,7 +16,7 @@ const {topping, headline, subheadline, ctaText, servicesText} = Astro.props;
         <div class="flex flex-col items-start space-y-4 py-6 px-12">
             <span class="text-ktx-lavender text-xs font-semibold tracking-[0.3em] uppercase">{topping}</span>
             <h1 transition:animate="slide" class="text-4xl sm:text-6xl font-extrabold tracking-tight whitespace-pre-line">
-                <HighlightText text={headline} highlight='Work for You' attr='text-ktx-lavender font-bold'></HighlightText>
+                <HighlightText text={headline} highlight='Work for You' attr='text-ktx-maroon font-bold'></HighlightText>
             </h1>
             <p class="mt-6 text-lg text-ktx-subtext [word-spacing:0.25rem]">
                 {subheadline}
@@ -53,7 +53,7 @@ const {topping, headline, subheadline, ctaText, servicesText} = Astro.props;
         
         <!-- Right Column: image -->
         <div class="max-h-full relative flex lg:justify-end">
-            <img src="/uploads/cover.png" alt="" class="hidden md:block relative object-cover">
+            <img src="/src/components/images/cover.png" alt="" class="hidden md:block relative object-cover">
             
         </div>
         
