@@ -1,23 +1,6 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Navbar from "../components/Navbar.astro";
-import Hero from "../components/Hero.astro";
-import Services from "../components/Services.astro";
-import FeatureCard from "../components/FeatureCard.astro";
-import Footer from "../components/Footer.astro";
-import homePageData from '../content/homepage.json';
+import Layout from "../layouts/KinetixLayout.astro";
+
 ---
 
-<Layout title="Kinetix Dev">
-	<Navbar brandName="Company Name" phone="+91 98765 43210" />
-	<main>
-		<Hero topping={homePageData.topping} headline={homePageData.heroTitle} subheadline={homePageData.heroSubtitle} ctaText={homePageData.ctaText} servicesText={homePageData.servicesText} />
-		<Services />
-		<FeatureCard 
-			motto="// Let's Work Together" 
-			heading={`Got an idea?\nLet's build it.`}
-			description="Whether you need a simple website, a full-stack application, or ongoing support - I'm here to help you turn your vision into a clean, fast and modern web solution."
-		/>
-		<Footer />
-	</main>
-</Layout>
+<Layout title="Kinetix Dev" description="A web development business website." />

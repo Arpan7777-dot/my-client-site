@@ -1,0 +1,52 @@
+---
+import '../styles/global.css'
+import { ClientRouter } from 'astro:transitions';
+
+import Navbar from "../components/Navbar.astro";
+import Hero from "../components/Hero.astro";
+import Services from "../components/Services.astro";
+import FeatureCard from "../components/FeatureCard.astro";
+import Footer from "../components/Footer.astro";
+import homePageData from '../content/homepage.json';
+
+interface Props {
+   title: string;
+   description?: string; 
+}
+const {title, description = "A website"} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <ClientRouter />
+    </head>
+    <body class="antialiased font-mono">
+        <Navbar brandName="Company Name" phone="+91 98765 43210" />
+        <main>
+            <Hero topping={homePageData.topping} headline={homePageData.heroTitle} subheadline={homePageData.heroSubtitle} ctaText={homePageData.ctaText} servicesText={homePageData.servicesText} />
+            <Services />
+            <FeatureCard 
+                motto="// Let's Work Together" 
+                heading={`Got an idea?\nLet's build it.`}
+                description="Whether you need a simple website, a full-stack application, or ongoing support - I'm here to help you turn your vision into a clean, fast and modern web solution."
+            />
+            <Footer />
+        </main>
+        <slot />
+
+        <!-- Script to catch password reset tokens and send you to /admin -->
+        <script is:inline>
+            (function (){
+                const hash = window.location.hash;
+                if(hash && (hash.includes("invite_token") || hash.includes("recovery_token") || hash.includes("confirmation_token"))) {
+                    window.location.href = "/admin/" + hash;
+                }
+            })();
+        </script>
+    </body>
+</html>
