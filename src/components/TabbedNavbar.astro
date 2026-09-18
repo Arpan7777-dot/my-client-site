@@ -6,6 +6,7 @@ import Footer from "../components/Footer.astro";
 import BlogList from "../components/BlogList.astro"
 import homePageData from '../content/homepage.json';
 
+
 interface Props {
     brandName?: string;
     phone?: string;
@@ -97,60 +98,22 @@ const formattedPhone = phone.replace(/[0-9+]/g, '');
 </div>
 
 <script>
-import { bigint } from "astro:schema";
+    // @ts-ignore
+    import { setupIndicatorTabs } from '../scripts/tabs';
 
-    function setupTabs() {
-        const buttons = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
-        const panels = document.querySelectorAll('.tab-panel');
-        const indicator = document.getElementById('tab-indicator');
-
-        function updateIndicator(activeBtn: HTMLButtonElement) {
-            if (!indicator || !activeBtn) return;
-
-            indicator.style.left = `${activeBtn.offsetLeft}px`;
-            indicator.style.width = `${activeBtn.offsetWidth}px`;
-        }
-
-        buttons.forEach((btn) => {
-            btn.addEventListener('click', () => {
-                const targetTab = btn.getAttribute('data-tab');
-    
-                buttons.forEach((b) => {
-                    b.classList.remove('text-ktx-lavender', 'font-semibold');
-                    b.classList.add('text-ktx-subtext0');
-                });
-
-                btn.classList.add('text-ktx-lavender', 'font-semibold');
-                btn.classList.remove('text-ktx-subtext0');
-
-                updateIndicator(btn);
-                panels.forEach((panel) => {
-                    if (panel.id !== `tab-${targetTab}`) {
-                        panel.classList.add('hidden');
-                        panel.classList.remove('block', 'opacity-100', 'translate-y-0');
-                        panel.classList.add('opacity-0', 'translate-y-2');
-                    }
-                });
-
-                const activePanel = document.getElementById(`tab-${targetTab}`);
-                if (activePanel) {
-                    activePanel.classList.remove('hidden');
-                    activePanel.classList.add('block');
-                }
-
-                // Request animation frame ensures display:block applies before transition begins
-                requestAnimationFrame(() => {
-                    requestAnimationFrame(() => {
-                        activePanel?.classList.remove('opacity-0', 'translate-y-2');
-                        activePanel?.classList.add('opacity-100', 'translate-y-0');
-                    });
-                });
-            });
-        });
+    function init() {
+        setupIndicatorTabs();
     }
 
-    setupTabs();
-    document.addEventListener('astro:after-swap',setupTabs);
+    // Execute once DOM is fully ready
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+
+    // Support View Transitions
+    document.addEventListener('astro:after-swap', init);
 </script>
 
 
