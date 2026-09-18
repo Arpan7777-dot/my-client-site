@@ -31,31 +31,33 @@ const formattedPhone = phone.replace(/[0-9+]/g, '');
         </a>
 
         <!-- Tab Navigation Links (Hidden on small mobile screens) -->
-        <nav class="hidden md:flex items-center gap-6 text-sm font-medium">
+        <nav class="relative hidden md:flex items-center justify-start gap-6 text-sm font-medium">
             <button 
-                class="tab-btn px-4 py-2 border-b-2 border-ktx-lavender text-ktx-lavender font-semibold focus:outilne-none transition"
+                class="tab-btn z-10 px-4 py-2 text-ktx-lavender font-semibold focus:outilne-none transition"
                 data-tab="home"
             >
                 Home
             </button>
             <button 
-                class="tab-btn px-4 py-2 border-b-2 border-transparent text-ktx-subtext0 focus:outilne-none transition"
+                class="tab-btn z-10 px-4 py-2 text-ktx-subtext0 focus:outilne-none transition"
                 data-tab="about"
             >
                 About
             </button>
             <button 
-                class="tab-btn px-4 py-2 border-b-2 border-transparent text-ktx-subtext0 focus:outilne-none transition"
+                class="tab-btn z-10 px-4 py-2 text-ktx-subtext0 focus:outilne-none transition"
                 data-tab="contact"
             >
                 Contact
             </button>
             <button 
-                class="tab-btn px-4 py-2 border-b-2 border-transparent text-ktx-subtext0 focus:outilne-none transition"
+                class="tab-btn px-4 py-2 text-ktx-subtext0 focus:outilne-none transition"
                 data-tab="portfolio"
             >
                 Portfolio
             </button>
+
+            <div id="tab-indicator" class="absolute bottom-0 left-0 w-17 h-0.5 bg-ktx-lavender transition-all duration-300 ease-out"></div>
         </nav>
 
         
@@ -72,7 +74,7 @@ const formattedPhone = phone.replace(/[0-9+]/g, '');
 </header>
 
 <!-- Tab Contents -->
-<div id="tab-home" class="tab-panel block">
+<div id="tab-home" class="tab-panel transition-all duration-300 ease-out opacity-100 translate-y-0 block">
     <main>
         <Hero topping={homePageData.topping} headline={homePageData.heroTitle} subheadline={homePageData.heroSubtitle} ctaText={homePageData.ctaText} servicesText={homePageData.servicesText} />
         <Services />
@@ -84,13 +86,13 @@ const formattedPhone = phone.replace(/[0-9+]/g, '');
         <Footer />
     </main>
 </div>
-<div id="tab-about" class="tab-panel hidden">
+<div id="tab-about" class="tab-panel transition-all duration-300 ease-out opacity-0 translate-y-2 hidden">
     <p class="p-6 text-center text-bold text-ktx-subtext0">(Section: About Us) Under Construction (:</p>
 </div>
-<div id="tab-contact" class="tab-panel hidden">
+<div id="tab-contact" class="tab-panel transition-all duration-300 ease-out opacity-0 translate-y-2 hidden">
     <p class="p-6 text-center text-bold text-ktx-subtext0">(Section: Contact Us) Under Construction (:</p>
 </div>
-<div id="tab-portfolio" class="tab-panel hidden">
+<div id="tab-portfolio" class="tab-panel transition-all duration-300 ease-out opacity-0 translate-y-2 hidden">
     <BlogList />
 </div>
 
@@ -98,29 +100,50 @@ const formattedPhone = phone.replace(/[0-9+]/g, '');
 import { bigint } from "astro:schema";
 
     function setupTabs() {
-        const buttons = document.querySelectorAll('.tab-btn');
+        const buttons = document.querySelectorAll<HTMLButtonElement>('.tab-btn');
         const panels = document.querySelectorAll('.tab-panel');
+        const indicator = document.getElementById('tab-indicator');
+
+        function updateIndicator(activeBtn: HTMLButtonElement) {
+            if (!indicator || !activeBtn) return;
+
+            indicator.style.left = `${activeBtn.offsetLeft}px`;
+            indicator.style.width = `${activeBtn.offsetWidth}px`;
+        }
 
         buttons.forEach((btn) => {
             btn.addEventListener('click', () => {
                 const targetTab = btn.getAttribute('data-tab');
-
+    
                 buttons.forEach((b) => {
-                    b.classList.remove('border-ktx-lavender', 'text-ktx-lavender', 'font-semibold');
-                    b.classList.add('border-transparent', 'text-ktx-subtext0');
+                    b.classList.remove('text-ktx-lavender', 'font-semibold');
+                    b.classList.add('text-ktx-subtext0');
                 });
 
-                btn.classList.add('border-ktx-lavender', 'text-ktx-lavender', 'font-semibold');
-                btn.classList.remove('border-transparent', 'text-ktx-subtext0');
+                btn.classList.add('text-ktx-lavender', 'font-semibold');
+                btn.classList.remove('text-ktx-subtext0');
 
+                updateIndicator(btn);
                 panels.forEach((panel) => {
-                    if (panel.id === `tab-${targetTab}`) {
-                        panel.classList.remove('hidden');
-                        panel.classList.add('block');
-                    } else {
-                        panel.classList.remove('block');
+                    if (panel.id !== `tab-${targetTab}`) {
                         panel.classList.add('hidden');
+                        panel.classList.remove('block', 'opacity-100', 'translate-y-0');
+                        panel.classList.add('opacity-0', 'translate-y-2');
                     }
+                });
+
+                const activePanel = document.getElementById(`tab-${targetTab}`);
+                if (activePanel) {
+                    activePanel.classList.remove('hidden');
+                    activePanel.classList.add('block');
+                }
+
+                // Request animation frame ensures display:block applies before transition begins
+                requestAnimationFrame(() => {
+                    requestAnimationFrame(() => {
+                        activePanel?.classList.remove('opacity-0', 'translate-y-2');
+                        activePanel?.classList.add('opacity-100', 'translate-y-0');
+                    });
                 });
             });
         });
