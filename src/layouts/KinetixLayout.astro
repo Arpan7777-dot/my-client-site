@@ -1,13 +1,10 @@
 ---
 import '../styles/global.css'
+import { Image } from 'astro:assets';
 import { ClientRouter } from 'astro:transitions';
 
-import Navbar from "../components/Navbar.astro";
-import Hero from "../components/Hero.astro";
-import Services from "../components/Services.astro";
-import FeatureCard from "../components/FeatureCard.astro";
-import Footer from "../components/Footer.astro";
-import homePageData from '../content/homepage.json';
+import Navbar from "../components/TabbedNavbar.astro";
+import catIcon from "../components/icons/cat.svg"
 
 interface Props {
    title: string;
@@ -27,16 +24,7 @@ const {title, description = "A website"} = Astro.props;
     </head>
     <body class="antialiased font-mono">
         <Navbar brandName="Company Name" phone="+91 98765 43210" />
-        <main>
-            <Hero topping={homePageData.topping} headline={homePageData.heroTitle} subheadline={homePageData.heroSubtitle} ctaText={homePageData.ctaText} servicesText={homePageData.servicesText} />
-            <Services />
-            <FeatureCard 
-                motto="// Let's Work Together" 
-                heading={`Got an idea?\nLet's build it.`}
-                description="Whether you need a simple website, a full-stack application, or ongoing support - I'm here to help you turn your vision into a clean, fast and modern web solution."
-            />
-            <Footer />
-        </main>
+        
         <slot />
 
         <!-- Script to catch password reset tokens and send you to /admin -->
@@ -49,4 +37,16 @@ const {title, description = "A website"} = Astro.props;
             })();
         </script>
     </body>
+    <footer class="max-w-7xl mx-auto border-t flex border-ktx-surface0 py-6 pb-20 justify-between">
+        <p class="text-xs text-ktx-subtext0 my-2">© {new Date().getFullYear()} Kinetix Dev. All rights reserved.</p>
+        <div class="flex items-center">
+            <a href="" class="text-xs text-ktx-subtext0 my-2 px-3 border-r-2 border-ktx-surface0">Privacy Policy</a>
+            <a href="" class="text-xs text-ktx-subtext0 my-2 px-3 border-r-2 border-ktx-surface0">Terms of Service</a>
+            <a href="" class="text-xs text-ktx-subtext0 my-2 px-3">Sitemap</a>
+            <div class="overflow-hidden">
+                <Image src={catIcon} alt=";)" class="w-5 h-5 -translate-x-10 filter-[invert(1)_drop-shadow(40px_0_0_var(--color-ktx-mauve))]"/>
+            </div>
+            
+        </div>
+    </footer>
 </html>
